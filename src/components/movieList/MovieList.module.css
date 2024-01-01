@@ -1,0 +1,31 @@
+.imgContainer{
+    position: relative;
+    transition: transform 0.2s;
+    width:300px;
+    margin:40px;
+    margin-bottom: 100px;  
+
+}
+
+.imgContainer:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.imgContainer:hover .fav{
+    opacity:1;
+}
+
+.fav{
+    
+    position:absolute;
+    background:linear-gradient(to bottom,#9EC8B9,#1B4242);
+    width:100%;
+    transition:0.5, ease;
+    opacity: 0;
+    bottom:0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    
+}
