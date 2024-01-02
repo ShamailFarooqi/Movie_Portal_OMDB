@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { useState } from "react";
 import FavouriteIcon from "../favouriteIcon/FavouriteIcon";
 import PopupDialog from "../popup/PopupDialog";
@@ -16,14 +15,15 @@ const handleFav=(favorite)=>{
 }
 
     return(
-        <div>
+        <div className={styles.container}>
             {props.movie.map((item)=>
-            <div className={styles.imgContainer} >
+
+            <div key={item.imdbID} className={styles.imgContainer} >
                 <MovieCard item={item} />
                 <div className={styles.fav} onClick={()=>handleFav(item)} >
                 <FavouriteIcon />
                 </div>
-                    
+    
                 </div>)}
                 {popUp && <PopupDialog setHolder={setPopUp} favmovies={favClick} />}
         </div>

@@ -1,12 +1,15 @@
 "use client"
 import React from "react";
 import { useState, useEffect } from "react";
+import RatingStars from "../ratingStars/RatingStars";
+import style from "./popup.module.css";
 
 
 export default function PopupDialog(props){
 
-    const [reviewData, setReviewData] = useState({rating:"", comments:""});
+    const [reviewData, setReviewData] = useState({rating:0, comments:""});
     const [favourites, setFavourites] = useState([]);
+    
 
     useEffect(() => {
         const movieFavourites = JSON.parse(
@@ -36,12 +39,13 @@ export default function PopupDialog(props){
     };
 
     const handleChange = (evt) =>{
-        setReviewData({...reviewData, [evt.target.name]:evt.target.value,})
+        setReviewData({...reviewData, [evt.target.name]:evt.target.value})
     }
 
+    console.log(reviewData)
     return(
             <div
-              className="fixed z-10 inset-0 overflow-y-auto"
+              className="fixed width-100 z-10 inset-0 overflow-y-auto"
               id="error-modal"
               aria-labelledby="modal-title"
               role="dialog"
@@ -65,13 +69,19 @@ export default function PopupDialog(props){
                         className="text-lg leading-6 font-medium text-gray-900"
                         id="modal-title"
                       >
-                        Rating
-                      </h3>
+                        {props.favmovies.Title}
+                        </h3>
+                        <div className="row">
+                        <RatingStars value={reviewData.rating} changeRating={setReviewData}/>
+
+                        </div>
+                      
                       <div className="mt-2">
                         <input
                          type="text"
-                         className="text-sm text-gray-500"
+                         className={style.input}
                          name="comments"
+                         placeholder="comments please"
                          value={reviewData.comments}
                          onChange={(evt)=>handleChange(evt)}/>
                       </div>
@@ -80,7 +90,7 @@ export default function PopupDialog(props){
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                     <button
                       onClick={()=>saveToLocalStorage(props.favmovies)}
-                      className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                      className=""
                     >
                       OK
                     </button>

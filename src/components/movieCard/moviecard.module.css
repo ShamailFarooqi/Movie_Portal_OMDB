@@ -1,0 +1,11 @@
+
+
+.images{
+    min-height: 400px;
+    min-width: 200px;
+}
+
+.movie h1{
+    font-size: 24px;
+    font-weight: bolder;
+}

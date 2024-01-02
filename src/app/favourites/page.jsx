@@ -1,9 +1,11 @@
 "use client"
 import React from "react";
 import style from "./page.module.css"
+import RatingStars from "@/components/ratingStars/RatingStars";
 import { useEffect , useState} from "react";
 import MovieCard from "@/components/movieCard/MovieCard";
 import RemoveIcon from "@/components/removeIcon/RemoveIcon";
+
 
 export default function Favourites(){
 
@@ -27,10 +29,13 @@ export default function Favourites(){
     return(
         <div className={style.container}>
             {favourites.map((fav)=>(
-                <div>
+                <div key={fav.imdbID} className={style.imgContainer}>
                 <MovieCard item={fav}/>
-                <p>{fav.comments}</p>
-                <div onClick={()=>removeFavHandle(fav)}>
+                <div>
+                <RatingStars value={fav.rating} />
+                </div>
+                <p>Comments - {fav.comments}</p>
+                <div className={style.remove} onClick={()=>removeFavHandle(fav)}>
                 <RemoveIcon />
                 </div> 
                 </div>))}

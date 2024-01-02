@@ -1,0 +1,10 @@
+.input{
+    height: 100px;
+    width: 400px;
+    background-color: rgb(144, 148, 152, 0.1);
+    color: black;
+    padding: 8px;
+}
+.input ::-webkit-input-placeholder {
+    text-align: center;
+  }

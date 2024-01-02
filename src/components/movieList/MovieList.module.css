@@ -1,3 +1,9 @@
+.container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .imgContainer{
     position: relative;
     transition: transform 0.2s;
@@ -16,11 +22,11 @@
     opacity:1;
 }
 
-.fav{
-    
+.fav{  
     position:absolute;
-    background:linear-gradient(to bottom,#9EC8B9,#1B4242);
+    background:rgba(0,0,0,0.8);
     width:100%;
+    color: white;
     transition:0.5, ease;
     opacity: 0;
     bottom:0;
@@ -29,3 +35,4 @@
     text-align: center;
     
 }
+ 

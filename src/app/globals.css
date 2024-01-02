@@ -8,7 +8,9 @@
   padding: 10px 60px;
   display: flex;
   flex-direction: column;
+  /* background: url("/background.jpg"); */
   justify-content: space-between;
-  background-color: #EEEEEE;
+  object-fit: cover;
+  z-index: -2;
 
 }

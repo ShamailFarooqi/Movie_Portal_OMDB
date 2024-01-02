@@ -13,19 +13,13 @@ const navLinks=[{
     title:"Favourites",
     path:"/favourites"
 },
+
 {
     id:2,
-    title:"About",
-    path:"/about"
-},
-{
-    id:3,
     title:"Search",
     path:"/search"
 }
 ]
-
-
 
 
 export default function Navbar(){
