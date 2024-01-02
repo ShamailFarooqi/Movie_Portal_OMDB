@@ -12,12 +12,13 @@ export default function Home() {
               </div>
           </div>
           <video
-              src="https://ia600300.us.archive.org/17/items/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
               autoPlay
               muted
               loop
               className={styles.video}
-          />
+          >
+            <source src="https://ia600300.us.archive.org/17/items/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" type="video/mp4"/>
+          </video>
       </main>
   );
 
