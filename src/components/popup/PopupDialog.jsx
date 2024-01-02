@@ -18,11 +18,21 @@ export default function PopupDialog(props){
         }
     }, []);
 
+    const checkMovieData = (currentMovie, check)=>{
+        return currentMovie.imdbID !==check
+    }
+
     const saveToLocalStorage = (items) => {
         props.setHolder(false)
-        // if(items.imdbID)
-        const newFavouriteList = [...favourites, {...items, ...reviewData}]
-        localStorage.setItem('movie-favourites', JSON.stringify(newFavouriteList))
+
+        if(favourites.every((val)=>checkMovieData(val, items.imdbID))){
+            const newFavouriteList = [...favourites, {...items, ...reviewData}]
+            localStorage.setItem('movie-favourites', JSON.stringify(newFavouriteList))
+        }
+
+        else{
+            console.log("already added")
+        }
     };
 
     const handleChange = (evt) =>{
