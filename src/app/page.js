@@ -11,7 +11,7 @@ export default function Home() {
               </div>
           </div>
           <video
-              src={require("../../public/video.mp4")}
+              src={require("../../public/video/video.mp4")}
               autoPlay
               muted
               loop
