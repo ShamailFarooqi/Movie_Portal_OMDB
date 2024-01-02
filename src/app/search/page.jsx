@@ -10,7 +10,7 @@ export default function Search(){
     let[searchFinalValue, setSearchFinalvalue] = useState("")
     
     useEffect(()=>{
-        fetch(`http://www.omdbapi.com/?apikey=3de33c73&s=${searchFinalValue}`)
+        fetch(`https://www.omdbapi.com/?apikey=3de33c73&s=${searchFinalValue}`)
         .then((data)=>{return data.json()})
         .then((val)=>  {
             if(val.Search){
