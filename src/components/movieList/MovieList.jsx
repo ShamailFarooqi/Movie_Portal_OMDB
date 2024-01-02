@@ -1,22 +1,31 @@
 import React from "react";
 import Image from "next/image";
+import { useState } from "react";
 import FavouriteIcon from "../favouriteIcon/FavouriteIcon";
 import PopupDialog from "../popup/PopupDialog";
 import styles from "./MovieList.module.css";
+import MovieCard from "../movieCard/MovieCard";
 
 export default function MovieList(props){
-console.log(props)
+let [popUp,setPopUp]=useState(false);
+let [favClick,setFavClick]=useState({})
+
+const handleFav=(favorite)=>{
+    setPopUp((pop)=>!pop)
+    setFavClick((data)=>({...favorite}))
+}
+
     return(
         <div>
             {props.movie.map((item)=>
-            <div className={styles.imgContainer}>
-                <Image src={item.Poster}  width={300} height={500} alt="images"/>
-                <h1>{item.Title}</h1>
-                <div className={styles.fav} >
+            <div className={styles.imgContainer} >
+                <MovieCard item={item} />
+                <div className={styles.fav} onClick={()=>handleFav(item)} >
                 <FavouriteIcon />
                 </div>
                     
                 </div>)}
+                {popUp && <PopupDialog setHolder={setPopUp} favmovies={favClick} />}
         </div>
     )
 }
