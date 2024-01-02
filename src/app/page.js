@@ -7,7 +7,7 @@ export default function Home() {
           <div className={styles.contents}>
               <h1>welcome to our movie portal</h1>
               <div className={styles.buttons}>
-                  <Link href="/search">Let's get Started</Link>
+                  <Link href="/search">Lets get Started</Link>
               </div>
           </div>
           <video
